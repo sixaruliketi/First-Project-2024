@@ -41,6 +41,7 @@
         android:hint="password"
         android:paddingStart="15dp"
         android:layout_marginTop="10dp"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="@+id/userNameEditText"
         app:layout_constraintStart_toStartOf="@+id/userNameEditText"
         app:layout_constraintTop_toBottomOf="@+id/userNameEditText" />
@@ -56,6 +57,7 @@
         android:textSize="19sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/passwordEditText"
+        app:layout_constraintStart_toStartOf="@+id/passwordEditText"
         app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
 
     <TextView
@@ -65,26 +67,7 @@
         android:textColor="@color/pink"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="@+id/loginButton"
+        app:layout_constraintStart_toStartOf="@+id/loginButton"
         app:layout_constraintTop_toBottomOf="@id/loginButton" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="60dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

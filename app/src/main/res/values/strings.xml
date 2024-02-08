@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">My Application</string>
     <string name="see_other">See Other</string>
+    <string name="not_a_member_sign_up"><u>not a member? sign up</u></string>
 </resources>

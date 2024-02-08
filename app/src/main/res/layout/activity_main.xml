@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/screen_bg">
 
     <TextView
         android:id="@+id/signInTitle"
@@ -27,7 +28,8 @@
         android:layout_marginHorizontal="40dp"
         android:backgroundTint="@color/pink"
         android:hint="username"
-        android:paddingStart="15dp"
+        android:drawableStart="@mipmap/icon_user"
+        android:drawablePadding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,8 +41,10 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/pink"
         android:hint="password"
-        android:paddingStart="15dp"
         android:layout_marginTop="10dp"
+        android:drawableStart="@drawable/baseline_album_24"
+        android:drawablePadding="10dp"
+        android:drawableTint="@color/pink"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="@+id/userNameEditText"
         app:layout_constraintStart_toStartOf="@+id/userNameEditText"

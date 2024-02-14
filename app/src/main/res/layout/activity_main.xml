@@ -4,16 +4,49 @@
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#DAE4F4">
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabBar"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="10"
+        android:padding="10dp">
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/myViewPager"
+        <EditText
+            android:id="@+id/stringEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="9"
+            android:backgroundTint="#DAE4F4"
+            android:hint="enter string"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"/>
+
+        <Button
+            android:id="@+id/enterBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="enter"/>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="1dp"
+        android:background="@color/black"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="text"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:background="@drawable/text_frame"
+        android:padding="15dp"
+        android:layout_margin="10dp"/>
 
 </LinearLayout>

@@ -2,7 +2,5 @@ package com.example.myapplication
 
 import androidx.fragment.app.Fragment
 
-class ProfileFragment : Fragment(R.layout.fragment_profile) {
-
-
+class BlankFragment : Fragment(R.layout.fragment_blank) {
 }

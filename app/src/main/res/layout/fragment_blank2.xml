@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SearchFragment"
-    android:background="@color/pink">
+    tools:context=".BlankFragment2"
+    android:background="#62B4F6">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView

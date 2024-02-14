@@ -2,35 +2,29 @@ package com.example.myapplication
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var bottom_nav_menu: BottomNavigationView
+    private lateinit var viewPager2: ViewPager2
+    private lateinit var tabLayout: TabLayout
+    private lateinit var viewPagerFragmentAdapter: ViewPagerFragmentAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        bottom_nav_menu = findViewById(R.id.bottom_nav_menu)
+        viewPager2 = findViewById(R.id.myViewPager)
+        tabLayout = findViewById(R.id.tabBar)
+        viewPagerFragmentAdapter = ViewPagerFragmentAdapter(this)
 
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        val controller = navHostFragment.navController
+        viewPager2.adapter = viewPagerFragmentAdapter
 
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.homeFragment,
-                R.id.searchFragment,
-                R.id.profileFragment
-            )
-        )
-
-        setupActionBarWithNavController(controller, appBarConfiguration)
-        bottom_nav_menu.setupWithNavController(controller)
+        TabLayoutMediator(tabLayout, viewPager2) { tab, position ->
+            tab.text = "tab ${position + 1}"
+        }.attach()
 
     }
 

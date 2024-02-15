@@ -1,41 +1,43 @@
 package com.example.myapplication
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.myapplication.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var noteEditText: EditText
-    private lateinit var enterBtn: Button
-    private lateinit var textView: TextView
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var myRecyclerViewAdapter: MyRecyclerViewAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        noteEditText = findViewById(R.id.stringEditText)
-        enterBtn = findViewById(R.id.enterBtn)
-        textView = findViewById(R.id.textView)
-
-        val sharedPreferences = getSharedPreferences("MY_NOTES", MODE_PRIVATE)
-        val notes = sharedPreferences.getString("NOTE","")
-        textView.text = notes
-
-        enterBtn.setOnClickListener {
-            val note = noteEditText.text.toString()
-            val text = textView.text.toString()
-            val result = note + "\n" + text
-
-            textView.text = result
-            noteEditText.setText("")
-
-            sharedPreferences.edit().putString("NOTE",result).apply()
-
+        binding.apply {
+            myRecyclerViewAdapter = MyRecyclerViewAdapter(getData())
+            myRecyclerView.adapter = myRecyclerViewAdapter
+            myRecyclerView.layoutManager = LinearLayoutManager(this@MainActivity)
+            myRecyclerViewAdapter.onClick = {
+                val intent = Intent(this@MainActivity, ItemZoomActivity::class.java)
+                intent.putExtra("TITLE",it.title)
+                intent.putExtra("DETAILS", it.details)
+                startActivity(intent)
+            }
         }
+    }
 
+    private fun getData(): MutableList<Post> {
+        val listItem = ArrayList<Post>()
+        listItem.add(Post("title 1","this is first post in my recycler view!!!"))
+        listItem.add(Post("title 2","this is second post in my recycler view!!!"))
+        listItem.add(Post("title 3","this is third post in my recycler view!!!"))
+        listItem.add(Post("title 4","this is forth post in my recycler view!!!"))
+        listItem.add(Post("title 5","this is fifth post in my recycler view!!!"))
+        listItem.add(Post("title 6","this is sixth post in my recycler view!!!"))
+        return listItem
     }
 
 }

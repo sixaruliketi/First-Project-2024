@@ -12,11 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
+        <activity android:name=".ForgotPasswordActivity"
+            android:exported="false"/>
         <activity
-            android:name=".ItemZoomActivity"
+            android:name=".ChangePasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ProfileActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MyApplication" />
+        <activity
+            android:name=".SignInActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MyApplication" />
+        <activity
+            android:name=".SignUpActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

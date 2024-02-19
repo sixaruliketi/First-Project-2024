@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".ProfileActivity">
 
-
     <ImageView
         android:id="@+id/profileAvatarIV"
         android:layout_width="150dp"
@@ -16,35 +15,87 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/profileDetailsTV"
+        android:id="@+id/profileUsernameTV"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="details"
-        android:textSize="17sp"
         android:layout_marginHorizontal="10dp"
+        android:text="username"
+        android:textSize="17sp"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="@+id/profileAvatarIV"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/profileAvatarIV"
         app:layout_constraintTop_toTopOf="@+id/profileAvatarIV" />
 
+    <EditText
+        android:id="@+id/profileUsernameET"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="enter username"
+        app:layout_constraintEnd_toEndOf="@+id/profileUsernameTV"
+        app:layout_constraintStart_toStartOf="@+id/profileAvatarIV"
+        app:layout_constraintTop_toBottomOf="@id/profileAvatarIV" />
+
+    <EditText
+        android:id="@+id/profileLinkToPhotoET"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="https://i.pinimg.com/1200x/0d/37/e2/0d37e2266c3a6983fdeddbb4e2eafa87.jpg"
+        app:layout_constraintEnd_toEndOf="@id/profileUsernameET"
+        app:layout_constraintStart_toStartOf="@id/profileUsernameET"
+        app:layout_constraintTop_toBottomOf="@id/profileUsernameET" />
+
+    <Button
+        android:id="@+id/profileSaveBtn"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="save"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/profileLinkToPhotoET"
+        app:layout_constraintEnd_toStartOf="@+id/profileShowBtn"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/profileShowBtn"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="show"
+        android:textSize="18sp"
+        app:layout_constraintTop_toTopOf="@id/profileSaveBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/profileSaveBtn" />
+
     <Button
         android:id="@+id/signOutBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="20dp"
         android:text="sign out"
         android:textSize="17sp"
-        android:layout_margin="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+    <TextView
+        android:id="@+id/profileUidTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="uid"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@id/profileShowBtn"
+        app:layout_constraintBottom_toTopOf="@id/profileChangePasswordBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <Button
         android:id="@+id/profileChangePasswordBtn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:text="change password"
         android:textSize="17sp"
-        android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toTopOf="@+id/signOutBtn"
         app:layout_constraintEnd_toEndOf="@+id/signOutBtn"
         app:layout_constraintStart_toStartOf="@+id/signOutBtn" />

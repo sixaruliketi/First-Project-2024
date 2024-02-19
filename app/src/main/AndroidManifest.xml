@@ -22,11 +22,11 @@
             android:exported="false"
             android:theme="@style/Theme.MyApplication" />
         <activity
-            android:name=".SignInActivity"
+            android:name=".SignUpActivity"
             android:exported="false"
             android:theme="@style/Theme.MyApplication" />
         <activity
-            android:name=".SignUpActivity"
+            android:name=".SignInActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

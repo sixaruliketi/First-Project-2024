@@ -22,10 +22,10 @@ class HomeRecyclerViewAdapter(val listItem : MutableList<Post>) : RecyclerView.A
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
         val item = listItem[position]
         holder.binding.apply {
-            homeItemViewUserAvatar.setImageResource(item.userAvatar)
+//            homeItemViewUserAvatar.setImageResource(item.userAvatar)
             homeItemViewUserID.text = item.userID
             homeItemViewUserPostLocation.text = item.location
-            homeItemViewUserPost.setImageResource(item.postPhoto)
+//            homeItemViewUserPost.setImageResource(item.postPhoto)
         }
     }
 

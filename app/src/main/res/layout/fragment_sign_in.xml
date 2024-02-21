@@ -8,7 +8,7 @@
     android:gravity="center"
     android:paddingHorizontal="40dp"
     android:paddingVertical="40dp"
-    android:background="80FFFFFF">
+    android:background="#80FFFFFF">
 
     <EditText
         android:id="@+id/signInEmailET"

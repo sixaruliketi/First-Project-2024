@@ -1,11 +1,13 @@
 package com.example.myapplication.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.myapplication.HomeActivity
 import com.example.myapplication.databinding.FragmentSignUpBinding
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
@@ -36,12 +38,17 @@ class SignUpFragment : Fragment(){
                 auth.createUserWithEmailAndPassword(email,password).addOnCompleteListener {
                     if (it.isSuccessful){
                         Toast.makeText(context, "signed up", Toast.LENGTH_SHORT).show()
-                        // TODO: navigation to home
+                        goToHome()
                     } else {
                         Toast.makeText(context, "${it.exception}", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
         }
+    }
+    private fun goToHome(){
+        val intent = Intent(activity, HomeActivity::class.java)
+        activity?.startActivity(intent)
+        activity?.finish()
     }
 }

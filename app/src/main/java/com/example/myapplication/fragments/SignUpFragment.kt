@@ -12,11 +12,13 @@ import com.example.myapplication.databinding.FragmentSignUpBinding
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 
+
 class SignUpFragment : Fragment(){
     private var _binding: FragmentSignUpBinding? = null
     private val binding get() = _binding!!
 
     private val auth = Firebase.auth
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentSignUpBinding.inflate(inflater, container, false)
@@ -37,7 +39,7 @@ class SignUpFragment : Fragment(){
 
                 auth.createUserWithEmailAndPassword(email,password).addOnCompleteListener {
                     if (it.isSuccessful){
-                        Toast.makeText(context, "signed up", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "logged in", Toast.LENGTH_SHORT).show()
                         goToHome()
                     } else {
                         Toast.makeText(context, "${it.exception}", Toast.LENGTH_SHORT).show()
@@ -46,6 +48,9 @@ class SignUpFragment : Fragment(){
             }
         }
     }
+
+
+
     private fun goToHome(){
         val intent = Intent(activity, HomeActivity::class.java)
         activity?.startActivity(intent)

@@ -6,17 +6,18 @@ import com.example.myapplication.adapters.ViewPagerAdapter
 import com.example.myapplication.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityMainBinding
     private lateinit var viewPagerAdapter: ViewPagerAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         init()
-
     }
 
     private fun init(){
@@ -33,4 +34,5 @@ class MainActivity : AppCompatActivity() {
             }.attach()
         }
     }
+
 }

@@ -12,6 +12,7 @@ import com.example.myapplication.databinding.FragmentSignInBinding
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 
+
 class SignInFragment : Fragment(){
 
     private var _binding: FragmentSignInBinding? = null
@@ -45,8 +46,11 @@ class SignInFragment : Fragment(){
                     }
                 }
             }
+
         }
     }
+
+
 
     private fun goToHome(){
         val intent = Intent(activity, HomeActivity::class.java)

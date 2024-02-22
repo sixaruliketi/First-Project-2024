@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.MainActivity
 import com.example.myapplication.adapters.HomeRecyclerViewAdapter
@@ -33,6 +35,7 @@ class HomeFragment : Fragment() {
 
     private lateinit var postArrayList : ArrayList<Post>
 
+    private lateinit var controller : NavController
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         init()
@@ -42,10 +45,18 @@ class HomeFragment : Fragment() {
     private fun init() {
         binding.apply {
 
+            controller = findNavController()
+
             homeRecyclerView.layoutManager = LinearLayoutManager(context)
+            homeRecyclerView.setHasFixedSize(true)
 
             postArrayList = arrayListOf<Post>()
+            homeRecyclerViewAdapter = HomeRecyclerViewAdapter(postArrayList)
             getPostData()
+
+            homeRecyclerViewAdapter.onClick = {
+                Toast.makeText(context, "liked", Toast.LENGTH_SHORT).show()
+            }
 
             homeLogOutBtn.setOnClickListener {
                 auth.signOut()
@@ -55,7 +66,8 @@ class HomeFragment : Fragment() {
             }
 
             menuBtn.setOnClickListener {
-                Toast.makeText(context, "clicked", Toast.LENGTH_SHORT).show()
+                val action = HomeFragmentDirections.actionHomeFragmentToProfileFragment()
+                controller.navigate(action)
             }
         }
     }
@@ -78,12 +90,14 @@ class HomeFragment : Fragment() {
 
                     binding.homeRecyclerView.adapter = HomeRecyclerViewAdapter(postArrayList)
                 }
-                              }
+
+            }
 
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+                Toast.makeText(context, "$error", Toast.LENGTH_SHORT).show()
             }
 
         })
     }
+
 }

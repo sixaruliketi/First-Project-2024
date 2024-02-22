@@ -1,8 +1,8 @@
 package com.example.myapplication.model
 
 data class Post(
-//    val userAvatar: Int,
+    val userAvatar: String ?= null,
     var userID : String ?= null,
     val location : String ?= null,
-//    val postPhoto : Int
+    val postPhoto : String ?= null
 )
